@@ -1,0 +1,105 @@
+{
+	"info": {
+		"_postman_id": "987a3fc2-4959-4c5c-8ba8-257ef5dcd457",
+		"name": "DataDrivenAPITest",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "732190"
+	},
+	"item": [
+		{
+			"name": "1-CreateData",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"exec": [
+							"pm.environment.set(\"requestJson\", JSON.stringify(pm.iterationData.toObject()))",
+							"",
+							"",
+							"//JS --> JSON",
+							"",
+							"//L D E C G",
+							"",
+							"//data.json --> read --> pm.iterationData(JSON) ---toObject --> JS -->Stringify--> JSON",
+							"// {",
+							"// \t\t\"name\":\"naveen\",",
+							"// \t\t\"city\":\"Bangalore\"",
+							"// \t}",
+							"",
+							"//2:",
+							"// {",
+							"// \t\t\"name\":\"naveen\",",
+							"// \t\t\"city\":\"Bangalore\",",
+							"// \t\t\"designation\":\"SDET\"",
+							"// \t}"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{{requestJson}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://httpbin.org/post",
+					"protocol": "http",
+					"host": [
+						"httpbin",
+						"org"
+					],
+					"path": [
+						"post"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2-CreateUser",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer e4b8e1f593dc4a731a153c5ec8cc9b8bbb583ae964ce650a741113091b4e2ac6",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\" : \"{{name}}\",\n    \"gender\": \"{{gender}}\",\n    \"email\" : \"{{$randomEmail}}\",\n    \"status\" : \"{{status}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://gorest.co.in/public/v2/users",
+					"protocol": "https",
+					"host": [
+						"gorest",
+						"co",
+						"in"
+					],
+					"path": [
+						"public",
+						"v2",
+						"users"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

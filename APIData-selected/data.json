@@ -1,0 +1,29 @@
+[
+    {
+        "name": "naveen",
+        "city": "Bangalore"
+    },
+    {
+        "name": "naveen",
+        "city": "Bangalore",
+        "designation": "SDET"
+    },
+    {
+        "name": "naveen",
+        "city": "Bangalore",
+        "language": [
+            "Java, JavaScript"
+        ]
+    },
+    {
+        "firstname": "naveen",
+        "lastname": "Brown",
+        "totalprice": 111,
+        "depositpaid": true,
+        "bookingdates": {
+            "checkin": "2018-01-01",
+            "checkout": "2019-01-01"
+        },
+        "additionalneeds": "Breakfast"
+    }
+]

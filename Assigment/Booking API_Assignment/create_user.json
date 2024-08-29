@@ -1,0 +1,30 @@
+[
+
+	{
+    "name": "Pramod",
+    "job": "QA Lead"
+},
+
+	{
+    "name": "Sarang",
+    "job": "TPM"
+},
+
+	{
+    "name": "Shweta",
+    "job": "QA Engineer"
+},
+{
+    "name": "Sharon",
+    "job": "Associate QA engineer"
+},
+{
+    "name": "morpheus",
+    "job": "leader"
+},
+{
+    "name": "Manish",
+    "job": "Data Engineer"
+}
+
+]

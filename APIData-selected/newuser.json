@@ -1,0 +1,22 @@
+[
+
+	{
+	"name":"naveen",
+	"gender":"male",
+	"status":"active"
+	},
+
+	{
+	"name":"ravi",
+	"gender":"male",
+	"status":"inactive"
+	},
+
+	{
+	"name":"pooja",
+	"gender":"female",
+	"status":"inactive"
+	}
+
+
+]

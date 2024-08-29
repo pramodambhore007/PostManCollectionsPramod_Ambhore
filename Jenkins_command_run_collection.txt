@@ -1,0 +1,2 @@
+newman run C:\Users\hp\Downloads\Bookingapi.json -e C:\Users\hp\Downloads\bookingenv.json -n 3 -r cli,html
+newman run $CollectionName -e $envName -n $numberofiterations -r cli,json

@@ -1,0 +1,293 @@
+{
+	"info": {
+		"_postman_id": "aa394c1c-bd6b-4516-8135-95cea5b06773",
+		"name": "Contacts API_Workflow_Pramod_Ambhore",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14165214"
+	},
+	"item": [
+		{
+			"name": "1-Create User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"const response=pm.response.json();\r",
+							"const userid=response._id;\r",
+							"console.log(\"user id is\"+userid);\r",
+							"\r",
+							"pm.environment.set(\"user_id\",userid);\r",
+							"\r",
+							"pm.test(\"Status code is 201\", function () {\r",
+							"    pm.response.to.have.status(201);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Btoken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"John\",\r\n    \"lastName\": \"Doe\",\r\n    \"birthdate\": \"1970-01-01\",\r\n    \"email\": \"jdoe@fake.com\",\r\n    \"phone\": \"8005555555\",\r\n    \"street1\": \"1 Main St.\",\r\n    \"street2\": \"Apartment A\",\r\n    \"city\": \"Anytown\",\r\n    \"stateProvince\": \"KS\",\r\n    \"postalCode\": \"12345\",\r\n    \"country\": \"USA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/contacts",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"contacts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "2-GET_Contact",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Btoken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/contacts/{{user_id}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"contacts",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "3-Update USER",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "PATCH",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Btoken}}",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Pramod\",\r\n    \"lastName\": \"Patil\",\r\n    \"birthdate\": \"1970-01-01\",\r\n    \"email\": \"pramodpatil@gmail.com\",\r\n    \"phone\": \"9960355946\",\r\n    \"stateProvince\": \"Maharashtra\",\r\n    \"country\": \"India\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{BaseURL}}/contacts/{{user_id}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"contacts",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "4-Check_updated_user",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Btoken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/contacts/{{user_id}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"contacts",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "5-Delete-User",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Btoken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/contacts/{{user_id}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"contacts",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "6-Final Delete Validation",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", function () {\r",
+							"    pm.response.to.have.status(404);\r",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "{{Btoken}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{BaseURL}}/contacts/{{user_id}}",
+					"host": [
+						"{{BaseURL}}"
+					],
+					"path": [
+						"contacts",
+						"{{user_id}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "Btoken",
+			"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2Njk3ZWMzMDMxNTU4NDAwMTNjZTk2ODciLCJpYXQiOjE3MjE5MjQ0NTh9.Rngvg9kfAyoDriM7J9_SLRnwQocPtZLazQUz9W5Fz3s"
+		},
+		{
+			"key": "BaseURL",
+			"value": "https://thinking-tester-contact-list.herokuapp.com"
+		}
+	]
+}
